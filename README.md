@@ -28,8 +28,8 @@ Instalamos los paquetes necesarios para poder ejecutar el sistema con "npm insta
 Iniciamos el servidor con el comando "npm start"
 ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ejecuta la aplicación en el modo development .\
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 La página se recargará si realiza modificaciones. \
 También verá errores de pelusa en la consola.
