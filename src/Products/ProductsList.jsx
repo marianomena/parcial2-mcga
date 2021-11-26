@@ -8,10 +8,9 @@ export const ProductsList = (props) => {
       <table>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Brand</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Tipo producto</th>
             <th>Options</th>
           </tr>
         </thead>

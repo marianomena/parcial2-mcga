@@ -40,7 +40,7 @@ export const deleteAsyncCreator = (productId) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.delete(
-				`https://abm-heroku-decastro-delmonte.herokuapp.com/api/products/${productId}`
+				`https://parcial-mena.herokuapp.com/api/productos/${productId}`
 			);
 			console.log(response);
 			if (response.status === 202) {
@@ -54,7 +54,7 @@ export const addAsyncCreator = (product) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(
-				'https://abm-heroku-decastro-delmonte.herokuapp.com/api/products',
+				'https://parcial-mena.herokuapp.com/api/productos',
 				product
 			);
 			console.log(response);
@@ -66,15 +66,17 @@ export const addAsyncCreator = (product) => {
 	};
 };
 
-export const editAsyncCreator = (productId) => {
+export const editAsyncCreator = (product) => {
+	console.log(product)
 	return async (dispatch) => {
 		try {
 			const response = await axios.put(
-				`https://abm-heroku-decastro-delmonte.herokuapp.com/api/products/${productId}`
+				`https://parcial-mena.herokuapp.com/api/productos/${product.id}`,
+				product
 			);
 			console.log(response);
 			if (response.status === 200) {
-				const action = creatorEditProduct(response.data.update);
+				const action = creatorEditProduct(response.data.producto);
 				dispatch(action);
 			}
 		} catch (error) {}
@@ -84,11 +86,15 @@ export const getProductsAsyncCreator = () => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.get(
-				'https://abm-heroku-decastro-delmonte.herokuapp.com/api/products/all'
+				'https://parcial-mena.herokuapp.com/api/productos'
 			);
-			console.log(response);
+
 			if (response.status === 200) {
-				const action = getProducts(response.data.data);
+				
+				let data = [];
+				if(response.data) data = response.data;
+				
+				const action = getProducts(data);
 				dispatch(action);
 			}
 		} catch (error) {}

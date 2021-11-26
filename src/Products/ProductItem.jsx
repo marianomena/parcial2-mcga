@@ -14,10 +14,9 @@ export const ProductItem = (props) => {
 
 	return (
 		<tr>
-			<td>{productToShow.name}</td>
-			<td>{productToShow.description}</td>
-			<td>{productToShow.price}</td>
-			<td>{productToShow.brand}</td>
+			<td>{productToShow.nombre_producto}</td>
+			<td>{productToShow.stock_kg}</td>
+			<td>{productToShow.tipo_producto}</td>
 			<td>
 				<EditIcon
 					onClick={() => onEdit(productToShow)}

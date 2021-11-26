@@ -8,10 +8,9 @@ import { Button } from 'react-bootstrap';
 export const ProductForm = (props) => {
 	const dispatch = useDispatch();
 	const { type, product } = props;
-	const [name, setName] = useState(product ? product.name : '');
-	const [description, setDescription] = useState(product ? product.description : '');
-	const [price, setPrice] = useState(product ? product.price : '');
-	const [brand, setBrand] = useState(product ? product.brand : '');
+	const [nombre_producto, setName] = useState(product ? product.nombre_producto : '');
+	const [stock_kg, setStock] = useState(product ? product.stock_kg : '');
+	const [tipo_producto, setTipo] = useState(product ? product.tipo_producto : '');
 
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -20,32 +19,29 @@ export const ProductForm = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (type === 'add') {
-			const product = { name, description, price, brand };
+			const product = { nombre_producto, stock_kg, tipo_producto };
 			const action = addAsyncCreator(product);
 			dispatch(action);
 		}
 		if (type === 'edit') {
 			const payloadProduct = {
 				id: product._id,
-				name,
-				description,
-				price,
-				brand,
+				nombre_producto,
+				stock_kg,
+				tipo_producto,
 			};
-			const action = editAsyncCreator(payloadProduct.id);
+			const action = editAsyncCreator(payloadProduct);
 			dispatch(action);
 		}
 		setName('');
-		setDescription('');
-		setPrice('');
-		setBrand('');
+		setStock('');
+		setTipo('');
 	};
 
 	useEffect(() => {
-		setName(product ? product.name : '');
-		setDescription(product ? product.description : '');
-		setPrice(product ? product.price : '');
-		setBrand(product ? product.brand : '');
+		setName(product ? product.nombre_producto : '');
+		setStock(product ? product.stock_kg : '');
+		setTipo(product ? product.tipo_producto : '');
 	}, [product]);
 
 	return (
@@ -61,35 +57,28 @@ export const ProductForm = (props) => {
 					<form onSubmit={handleSubmit} className="mt-3">
 						<input
 							type="text"
-							name="name"
-							placeholder="Name"
+							name="nombre_producto"
+							placeholder="Nombre producto"
 							className="form-control mb-3"
 							onChange={(e) => setName(e.target.value)}
-							value={name}
+							value={nombre_producto}
 						/>
-						<input
-							type="text"
-							name="description"
-							placeholder="Description"
-							className="form-control mb-3"
-							onChange={(e) => setDescription(e.target.value)}
-							value={description}
-						/>
+
 						<input
 							type="number"
-							name="price"
-							placeholder="Price"
+							name="stock_kg"
+							placeholder="Stock"
 							className="form-control mb-3"
-							onChange={(e) => setPrice(e.target.value)}
-							value={price}
+							onChange={(e) => setStock(e.target.value)}
+							value={stock_kg}
 						/>
 						<input
 							type="text"
-							name="brand"
-							placeholder="Brand"
+							name="tipo_producto"
+							placeholder="Tipo de producto"
 							className="form-control mb-3"
-							onChange={(e) => setBrand(e.target.value)}
-							value={brand}
+							onChange={(e) => setTipo(e.target.value)}
+							value={tipo_producto}
 						/>
 						<button className="btn btn-success" type="submit">
 							Confirm
