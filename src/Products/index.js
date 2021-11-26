@@ -17,7 +17,7 @@ function Product() {
 	useEffect(() => {
 		dispatch(getProductsAsyncCreator());
 		return () => {};
-	}, []);
+	}, );
 
 	useEffect(() => {
 		if (productSelected) {

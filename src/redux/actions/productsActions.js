@@ -70,7 +70,7 @@ export const editAsyncCreator = (productId) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.put(
-				`https://abm-heroku-decastro-delmonte.herokuapp.com/api/products//${productId}`
+				`https://abm-heroku-decastro-delmonte.herokuapp.com/api/products/${productId}`
 			);
 			console.log(response);
 			if (response.status === 200) {

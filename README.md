@@ -37,8 +37,8 @@ You will also see any lint errors in the console.
 ### Work and distribution team
 
 ```
-- De Castro Gonzalo branch (products)
-- Delmonte Lucas branch (providers)
+- Mena Mariano branch (products)
+
 ```
 ### Requirements
 
